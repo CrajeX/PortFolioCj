@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- PC CSS -->
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 500px)"> <!-- Mobile CSS -->
+    <title>Carousel</title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <img src="haerin.jpeg" id="hae">
+            <img src="hyein.jpeg" id="hye">
+            <img src="hanni.jpeg" id="han">
+            <img src="minji.jpeg" id="min">
+            <img src="dani.jpeg" id="dani">
+        </div>
+        <div class="main-container"></div>
+    </div>
+
+    <script>
+        function loadScriptIfNeeded() {
+            const viewportWidth = window.innerWidth;
+            
+            // Check if viewport width is 500px or less
+            if (viewportWidth <= 500) {
+                // Dynamically create and append the script tag for mobile.js
+                const script = document.createElement('script');
+                script.src = 'mobile.js';
+                script.defer = true; // Ensures the script runs after the document is parsed
+                document.body.appendChild(script);
+            }
+        }
+
+        // Execute on initial load
+        loadScriptIfNeeded();
+
+        // Optionally, execute on window resize
+        window.addEventListener('resize', loadScriptIfNeeded);
+    </script>
+    <script src="design.js"></script>
+</body>
+</html>
